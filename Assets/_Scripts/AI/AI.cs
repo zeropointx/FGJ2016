@@ -3,9 +3,9 @@ using System.Collections;
 
 public class AI : MonoBehaviour {
     NavMeshAgent navAgent = null;
-    public Transform targets;
+    Transform targets;
     public float waitTimer = 0.0f;
-    float minWaitTimerDelay = 1.0f;
+    float minWaitTimerDelay = 3.0f;
     float maxWaitTimerDelay = 10.0f;
     public float waitTimerDelay = 0.0f;
 	// Use this for initialization
@@ -16,8 +16,9 @@ public class AI : MonoBehaviour {
     }
     public State currentState = State.WALKING;
 	void Start () {
+        targets = GameObject.Find("Targets").transform;
         navAgent = GetComponent<NavMeshAgent>();
-        navAgent.destination = getRandomTargetPos();
+        navAgent.SetDestination(getRandomTargetPos());
 	}
 	
 	// Update is called once per frame
@@ -31,6 +32,7 @@ public class AI : MonoBehaviour {
                         currentState = State.WAITING;
                         waitTimer = 0.0f;
                         waitTimerDelay = Random.Range(minWaitTimerDelay, maxWaitTimerDelay);
+                        navAgent.Stop(true);
                     }
                     break;
                 }
@@ -40,7 +42,9 @@ public class AI : MonoBehaviour {
                     if(waitTimer >= waitTimerDelay)
                     {
                         currentState = State.WALKING;
-                        navAgent.destination = getRandomTargetPos();
+                        navAgent.SetDestination(getRandomTargetPos());
+                        navAgent.Resume();
+
                     }
                     break;
                 }
