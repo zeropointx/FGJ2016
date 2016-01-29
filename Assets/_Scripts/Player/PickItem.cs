@@ -4,26 +4,32 @@ using System.Collections;
 public class PickItem : MonoBehaviour 
 {
 
+    bool holdingItem;
+
 	// Use this for initialization
 	void Start () 
     {
-	
+        holdingItem = true;
 	}
-	
-	// Update is called once per frame
-	void Update () 
+
+    // Update is called once per frame
+    void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0.5f));
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit))
+            if (!holdingItem)
             {
-                Debug.DrawRay(hit.point, hit.normal, Color.red, 5.0f);
+                Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0.5f));
+                RaycastHit hit;
+                if (Physics.Raycast(ray, out hit))
+                    Debug.DrawRay(hit.point, hit.normal, Color.red, 5.0f);
                 if (hit.transform.gameObject.tag == "PickUp")
+                {
+                    holdingItem = true;
+                    //TODO pick physics item
                     Debug.Log("picked up");
+                }
             }
         }
-
-	}
+    }
 }

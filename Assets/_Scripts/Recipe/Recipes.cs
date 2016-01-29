@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 public class Recipe : MonoBehaviour {
-    List<Item> cultistItems = new List<Item>();
+    List<Ingredient.Type> cultistItems = new List<Ingredient.Type>();
 	// Use this for initialization
 	void Start () {
         GenerateCultistItems();
@@ -11,15 +11,15 @@ public class Recipe : MonoBehaviour {
     {
         for(int i = 0; i < 20; i++)
         {
-            Item tempItem = (Item)Random.Range(0,(int)Item.ITEM20);
+            Ingredient.Type tempItem = (Ingredient.Type)Random.Range(0, (int)Ingredient.Type.U);
             while(!CultistItemContains(tempItem))
             {
-                tempItem = (Item)Random.Range(0, (int)Item.ITEM20);
+                tempItem = (Ingredient.Type)Random.Range(0, (int)Ingredient.Type.U);
             }
             cultistItems.Add(tempItem);
         }
     }
-    bool CultistItemContains(Item item)
+    bool CultistItemContains(Ingredient.Type item)
     {
         for(int i = 0; i < cultistItems.Count; i++)
         {
