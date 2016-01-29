@@ -4,12 +4,12 @@ using System.Collections;
 public class PickItem : MonoBehaviour 
 {
 
-    private bool holdingItem;
+    private GameObject heldItem = null;
 
 	// Use this for initialization
 	void Start () 
     {
-        holdingItem = false;
+        heldItem = null;
 	}
 
     // Update is called once per frame
@@ -17,7 +17,7 @@ public class PickItem : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            if (!holdingItem)
+            if (heldItem == null)
             {
                 Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0.5f));
                 RaycastHit hit;
@@ -26,16 +26,29 @@ public class PickItem : MonoBehaviour
                     Debug.DrawRay(hit.point, hit.normal, Color.red, 5.0f);
                     if (hit.transform.gameObject.tag == "PickUp")
                     {
-                        //holdingItem = true;
-                        //TODO pick physics item
+                        heldItem = hit.transform.gameObject;
+                        PickObject();
                         Debug.Log("picked up");
                     }
                 }
             }
             else
-            {
-                //TODO throw item
-            }
+                DropObject();
         }
+    }
+
+    private void PickObject()
+    {
+        heldItem.transform.parent = this.transform;
+        heldItem.transform.position += transform.forward * 0.5f + transform.up * 1.25f;
+        heldItem.GetComponent<Rigidbody>().isKinematic = true;
+    }
+
+
+    private void DropObject()
+    {
+        heldItem.transform.parent = null;
+        heldItem.GetComponent<Rigidbody>().isKinematic = false;
+        heldItem = null;
     }
 }
