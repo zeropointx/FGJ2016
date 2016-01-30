@@ -7,6 +7,7 @@ public class CauldronScript : MonoBehaviour {
 
     public int winAmount;
     public int currentAmount;
+    public AudioSource splashAudio;
 
 
 	void Start () 
@@ -28,6 +29,7 @@ public class CauldronScript : MonoBehaviour {
     {
         if(other.gameObject.tag == "PickUp")
         {
+            splashAudio.Play();
             Destroy(other.gameObject);
             currentAmount++;
         }

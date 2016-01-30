@@ -10,6 +10,9 @@ public class AI : MonoBehaviour {
     public float waitTimerDelay = 0.0f;
     public Transform targetItem = null;
     float holdItemDistance = 1.0f;
+    public int coughRandomizer;
+    int randomCough;
+    public AudioSource cough1, cough2, cough3, cough4;
 	// Use this for initialization
     public enum State
     {
@@ -31,19 +34,54 @@ public class AI : MonoBehaviour {
         {
             case State.WALKING:
                 {
+                    coughRandomizer = Random.Range(1, 8);
                     if (Vector3.Distance(transform.position, navAgent.destination) < 2.0f)
                     {
                         currentState = State.WAITING;
                         waitTimer = 0.0f;
                         waitTimerDelay = Random.Range(minWaitTimerDelay, maxWaitTimerDelay);
                         navAgent.Stop(true);
+
                     }
                     break;
                 }
             case State.WAITING:
                 {
+
                     waitTimer += Time.deltaTime;
-                    if(waitTimer >= waitTimerDelay)
+
+                    if (coughRandomizer == 1)
+                    {
+                        coughRandomizer = 0;
+                        randomCough = Random.Range(1, 4);
+
+                        switch (randomCough)
+                        {
+                            case 1:
+                                cough1.Play();
+                                randomCough = 0;
+                                break;
+
+                            case 2:
+                                cough2.Play();
+                                randomCough = 0;
+                                break;
+
+                            case 3:
+                                cough3.Play();
+                                randomCough = 0;
+                                break;
+
+                            case 4:
+                                cough4.Play();
+                                randomCough = 0;
+                                break;
+
+                            default:
+                                break;
+                        }
+                    }
+                    if (waitTimer >= waitTimerDelay)
                     {
                         currentState = State.WALKING;
                         navAgent.SetDestination(getRandomTargetPos());
