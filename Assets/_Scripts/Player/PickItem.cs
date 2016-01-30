@@ -68,6 +68,7 @@ public class PickItem : MonoBehaviour
         body.useGravity = true;
         body.AddForce(throwMultiplier * throwForce * myCamera.transform.forward, ForceMode.Impulse);
         body.AddRelativeTorque(throwMultiplier * new Vector3(-25, 0, 0));
+        body.isKinematic = false;
         heldItem = null;
     }
 
