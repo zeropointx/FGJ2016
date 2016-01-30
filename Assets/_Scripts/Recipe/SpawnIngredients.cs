@@ -1,24 +1,25 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class SpawnIngredients : MonoBehaviour {
 
     public GameObject pickUp;
-    private const int INGREDIENT_TYPES = 20;
-    private const int SPAWN_COUNT = 5;
 
 	// Use this for initialization
 	void Start () 
     {
-        for (int i = 0; i < SPAWN_COUNT; i++)
+        int children = transform.childCount;
+        List<Ingredient.Type> types = GameObject.Find("/AiManager").GetComponent<Recipes>().GetPlayerItems();
+        for (int i = 0; i < types.Count; i++)
         {
-            if (transform.childCount <= 0)
-                break;
-            GameObject point = transform.GetChild((Random.Range(0, (int)transform.childCount) - 1)).gameObject;
-            GameObject spawn = pickUp;//(GameObject)Resources.Load("_Prefabs/PickUp");
+            GameObject point = transform.GetChild((Random.Range(0, children - 1))).gameObject;
+            GameObject spawn = pickUp;
             spawn.transform.position = point.transform.position;
-            Destroy(point);
+            spawn.GetComponent<Ingredient>().SetType(types[i]);
+            DestroyImmediate(point);
             Instantiate(spawn);
+            children--;
         }
 	}
 
