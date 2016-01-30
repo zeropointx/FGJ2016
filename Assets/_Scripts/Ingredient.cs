@@ -9,6 +9,9 @@ public class Ingredient : MonoBehaviour
 
     public GameObject burger;
     public GameObject pepsi;
+    public GameObject axe;
+    public GameObject bone;
+    public GameObject sibs;
 
     public enum Type
     {
@@ -31,7 +34,7 @@ public class Ingredient : MonoBehaviour
 	    
 	}
 
-    public Type GetType()
+    public Ingredient.Type GetIngredientType()
     {
         return type;
     }
@@ -44,18 +47,24 @@ public class Ingredient : MonoBehaviour
         switch(type)
         {
             case Type.A:
+                newModel = Instantiate(burger);
+                break;
             case Type.B:
+                newModel = Instantiate(pepsi);
+                break;
             case Type.C:
+                newModel = Instantiate(axe);
+                break;
             case Type.D:
+                newModel = Instantiate(bone);
+                break;
             case Type.E:
+                break;
             case Type.F:
             case Type.G:
             case Type.H:
             case Type.I:
             case Type.J:
-                newModel = Instantiate(pepsi);
-                break;
-
             case Type.K:
             case Type.M:
             case Type.N:
@@ -66,7 +75,7 @@ public class Ingredient : MonoBehaviour
             case Type.S:
             case Type.T:
             case Type.U:
-                newModel = Instantiate(burger);
+                newModel = Instantiate(sibs);
                 break;
 
             default:
