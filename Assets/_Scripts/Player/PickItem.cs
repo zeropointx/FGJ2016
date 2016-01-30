@@ -32,11 +32,12 @@ public class PickItem : MonoBehaviour
                 if (Physics.Raycast(ray, out hit))
                 {
                     Debug.DrawRay(hit.point, hit.normal, Color.red, 5.0f);
-                    if (hit.transform.gameObject.tag == "PickUp")
+                    if (hit.transform.parent.tag == "PickUp")
                     {
                         if (hit.distance < maxGrabDistance)
                         {
                             heldItem = hit.transform.gameObject;
+                            Debug.Log(heldItem.name);   
                             PickObject();
                         }
                         else
@@ -55,9 +56,9 @@ public class PickItem : MonoBehaviour
 
     private void PickObject()
     {
-        heldItem.transform.parent = this.transform;
+        heldItem.transform.parent.parent = this.transform;
         heldItem.transform.position = transform.position + transform.forward * holdDistance;
-        Rigidbody body = heldItem.GetComponent<Rigidbody>();
+        Rigidbody body = heldItem.transform.GetComponent<Rigidbody>();
         body.useGravity = false;
         body.velocity = new Vector3(0, 0, 0);
         body.angularVelocity = new Vector3(0, 0, 0);
@@ -66,8 +67,8 @@ public class PickItem : MonoBehaviour
 
     private void DropObject(float throwMultiplier = 0.0f)
     {
-        heldItem.transform.parent = null;
-        Rigidbody body = heldItem.GetComponent<Rigidbody>();
+        heldItem.transform.parent.parent = null;
+        Rigidbody body = heldItem.transform.GetComponent<Rigidbody>();
         body.useGravity = true;
         body.AddForce(throwMultiplier * throwForce * myCamera.transform.forward, ForceMode.Impulse);
         body.AddRelativeTorque(throwMultiplier * new Vector3(-25, 0, 0));
