@@ -983,7 +983,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b7a51f69694be7479e6e5d19084a5b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  winAmount: 3
+  winAmount: 5
   currentAmount: 0
 --- !u!1001 &188748042
 Prefab:
@@ -2930,6 +2930,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 417362, guid: 2acecfba181450a408b9e3ff171438f3, type: 2}
       propertyPath: m_LocalScale.x
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 417362, guid: 2acecfba181450a408b9e3ff171438f3, type: 2}
       propertyPath: m_LocalPosition.z
