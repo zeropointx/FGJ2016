@@ -14,11 +14,10 @@ public class SpawnIngredients : MonoBehaviour {
         for (int i = 0; i < types.Count; i++)
         {
             GameObject point = transform.GetChild((Random.Range(0, children - 1))).gameObject;
-            GameObject spawn = pickUp;
+            GameObject spawn = Instantiate(pickUp);
             spawn.transform.position = point.transform.position;
             spawn.GetComponent<Ingredient>().SetType(types[i]);
             DestroyImmediate(point);
-            Instantiate(spawn);
             children--;
         }
 	}
