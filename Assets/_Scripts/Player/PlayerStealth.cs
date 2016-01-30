@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class PlayerStealth : MonoBehaviour {
 
@@ -15,5 +16,6 @@ public class PlayerStealth : MonoBehaviour {
     public void LoseGame()
     {
         Debug.Log("You lostered!");
+        SceneManager.LoadScene("LosingScene");
     }
 }
