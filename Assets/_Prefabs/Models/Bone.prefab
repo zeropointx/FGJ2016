@@ -1,43 +1,43 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &152600
+--- !u!1 &197814
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 430916}
-  - 33: {fileID: 3323990}
-  - 23: {fileID: 2388660}
-  - 95: {fileID: 9584952}
-  - 65: {fileID: 6578514}
-  - 54: {fileID: 5464660}
+  - 4: {fileID: 443364}
+  - 33: {fileID: 3348400}
+  - 23: {fileID: 2396766}
+  - 95: {fileID: 9593648}
+  - 65: {fileID: 6537616}
+  - 54: {fileID: 5425794}
   m_Layer: 0
-  m_Name: Burger
+  m_Name: Bone
   m_TagString: PickUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &430916
+--- !u!4 &443364
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 152600}
+  m_GameObject: {fileID: 197814}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 4, y: 4, z: 4}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!23 &2388660
+--- !u!23 &2396766
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 152600}
+  m_GameObject: {fileID: 197814}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -58,19 +58,19 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!33 &3323990
+--- !u!33 &3348400
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 152600}
-  m_Mesh: {fileID: 4300000, guid: 660b48aae4ed88140b5717cc9ca835c5, type: 3}
---- !u!54 &5464660
+  m_GameObject: {fileID: 197814}
+  m_Mesh: {fileID: 4300000, guid: 23279b5e13bcebf4386753e0fc8e5188, type: 3}
+--- !u!54 &5425794
 Rigidbody:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 152600}
+  m_GameObject: {fileID: 197814}
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
@@ -80,27 +80,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &6578514
+--- !u!65 &6537616
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 152600}
+  m_GameObject: {fileID: 197814}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.16360104, y: 0.14168267, z: 0.09947191}
-  m_Center: {x: 0.000000011175871, y: -0.000000044703484, z: -0.007064542}
---- !u!95 &9584952
+  m_Size: {x: 0.03937008, y: 0.0985615, z: 0.37093568}
+  m_Center: {x: 0, y: 0, z: -0.000000037252903}
+--- !u!95 &9593648
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 152600}
+  m_GameObject: {fileID: 197814}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 660b48aae4ed88140b5717cc9ca835c5, type: 3}
+  m_Avatar: {fileID: 9000000, guid: 23279b5e13bcebf4386753e0fc8e5188, type: 3}
   m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
@@ -115,20 +115,8 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 0}
-      propertyPath: m_TagString
-      value: PickUp
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
+    m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 152600}
+  m_RootGameObject: {fileID: 197814}
   m_IsPrefabParent: 1
