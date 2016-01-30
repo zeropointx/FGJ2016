@@ -54,15 +54,15 @@ public class AI : MonoBehaviour {
                 }
             case State.FETCH_ITEM:
                 {
-                    if(Vector3.Distance(transform.position,targetItem.position) < 2.0f)
+                    if(Vector3.Distance(transform.position, targetItem.position) < 2.0f)
                     {
                         currentState = State.TAKE_ITEM_BACK;
-                        navAgent.SetDestination(targetItem.GetComponent<Ingredient>().startPos);
+                        navAgent.SetDestination(targetItem.parent.GetComponent<Ingredient>().startPos);
                         PickObject();
                     }
                     else
                     if(navAgent.destination != targetItem.position)
-                    navAgent.SetDestination(targetItem.position);
+                        navAgent.SetDestination(targetItem.position);
                     break;
                 }
             case State.TAKE_ITEM_BACK:
@@ -72,7 +72,7 @@ public class AI : MonoBehaviour {
                         currentState = State.FETCH_ITEM;
                         navAgent.SetDestination(targetItem.position);
                     }
-                    if (Vector3.Distance(transform.position, targetItem.GetComponent<Ingredient>().startPos) < 2.0f)
+                    if (Vector3.Distance(transform.position, targetItem.parent.GetComponent<Ingredient>().startPos) < 2.0f)
                     {
                         currentState = State.WAITING;
                         waitTimerDelay = Random.Range(minWaitTimerDelay, maxWaitTimerDelay);
@@ -92,7 +92,7 @@ public class AI : MonoBehaviour {
             return;
 
         targetItem = item;
-        targetItem.GetComponent<Ingredient>().isBeingPickedUp = true;
+        targetItem.parent.GetComponent<Ingredient>().isBeingPickedUp = true;
         navAgent.SetDestination(targetItem.position);
         navAgent.Resume();
         currentState = State.FETCH_ITEM;
@@ -100,7 +100,7 @@ public class AI : MonoBehaviour {
     private void PickObject()
     {
        
-        targetItem.parent = this.transform;
+        targetItem.root.parent = this.transform;
         targetItem.position = transform.position + transform.forward * holdItemDistance;
         targetItem.GetComponent<Rigidbody>().isKinematic = true;
     }
@@ -108,8 +108,8 @@ public class AI : MonoBehaviour {
 
     private void DropObject()
     {
-        targetItem.GetComponent<Ingredient>().isBeingPickedUp = false;
-        targetItem.parent = null;
+        targetItem.parent.GetComponent<Ingredient>().isBeingPickedUp = false;
+        targetItem.parent.parent = null;
         Rigidbody body = targetItem.GetComponent<Rigidbody>();
         body.isKinematic = false;
         targetItem = null;

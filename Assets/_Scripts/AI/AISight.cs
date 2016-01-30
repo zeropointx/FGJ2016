@@ -35,10 +35,10 @@ public class AISight : MonoBehaviour {
             {
                 if (rayHit.transform.tag == "PickUp")
                 {
-                    if(Vector3.Distance(rayHit.transform.GetComponent<Ingredient>().startPos,rayHit.transform.position) > 2.0f)
+                    if(Vector3.Distance(rayHit.transform.parent.GetComponent<Ingredient>().startPos, rayHit.transform.position) > 2.0f)
                     {
-                        if (!rayHit.transform.GetComponent<Ingredient>().isBeingPickedUp)
-                        transform.root.GetComponent<AI>().FetchItem(rayHit.transform);
+                        if (!rayHit.transform.parent.GetComponent<Ingredient>().isBeingPickedUp)
+                            transform.root.GetComponent<AI>().FetchItem(rayHit.transform);
                     }
                    
                 }
