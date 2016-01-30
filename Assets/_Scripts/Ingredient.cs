@@ -12,6 +12,10 @@ public class Ingredient : MonoBehaviour
     public GameObject axe;
     public GameObject bone;
     public GameObject sibs;
+    public GameObject treeRoot;
+    public GameObject lizard;
+    public GameObject teddy;
+    public GameObject nokia;
 
     public enum Type
     {
@@ -59,10 +63,17 @@ public class Ingredient : MonoBehaviour
                 newModel = Instantiate(bone);
                 break;
             case Type.E:
+                newModel = Instantiate(sibs);
                 break;
             case Type.F:
+                newModel = Instantiate(treeRoot);
+                break;
             case Type.G:
+                newModel = Instantiate(lizard);
+                break;
             case Type.H:
+                newModel = Instantiate(teddy);
+                break;
             case Type.I:
             case Type.J:
             case Type.K:
@@ -75,7 +86,7 @@ public class Ingredient : MonoBehaviour
             case Type.S:
             case Type.T:
             case Type.U:
-                newModel = Instantiate(sibs);
+                newModel = Instantiate(nokia);
                 break;
 
             default:

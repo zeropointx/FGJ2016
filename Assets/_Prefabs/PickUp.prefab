@@ -155,6 +155,10 @@ MonoBehaviour:
   axe: {fileID: 109682, guid: a04f9041f28f2854b88721a50858e35d, type: 2}
   bone: {fileID: 197814, guid: 8a83f374a41a56546abde158920b630a, type: 2}
   sibs: {fileID: 100098, guid: 9709c3df3be048c44a0e779a45a76519, type: 2}
+  treeRoot: {fileID: 158006, guid: 3f7ec2d815e950f4a9412d3bdd274e77, type: 2}
+  lizard: {fileID: 109936, guid: b00cf690fe2598847bf1c698f99e06be, type: 2}
+  teddy: {fileID: 166166, guid: d8820569401ce224d93683357e159759, type: 2}
+  nokia: {fileID: 192116, guid: 9fdd445942a4ea044ad280e8735d4607, type: 2}
   isBeingPickedUp: 0
 --- !u!1001 &100100000
 Prefab:
