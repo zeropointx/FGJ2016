@@ -49,7 +49,7 @@ public class PickItem : MonoBehaviour
         {
             UpdateHeldItem();
             if (Input.GetMouseButtonDown(0))
-                DropObject();
+                DropObject(1.0f);
         }
     }
 
@@ -57,11 +57,14 @@ public class PickItem : MonoBehaviour
     {
         heldItem.transform.parent = this.transform;
         heldItem.transform.position = transform.position + transform.forward * holdDistance;
-        heldItem.GetComponent<Rigidbody>().useGravity = false;
+        Rigidbody body = heldItem.GetComponent<Rigidbody>();
+        body.useGravity = false;
+        body.velocity = new Vector3(0, 0, 0);
+        body.angularVelocity = new Vector3(0, 0, 0);
     }
 
 
-    private void DropObject(float throwMultiplier = 1.0f)
+    private void DropObject(float throwMultiplier = 0.0f)
     {
         heldItem.transform.parent = null;
         Rigidbody body = heldItem.GetComponent<Rigidbody>();
@@ -82,7 +85,7 @@ public class PickItem : MonoBehaviour
 
             if (Vector3.Distance(heldItem.transform.position, transform.position) > holdDistance * 1.5f)
             {
-                DropObject(0.0f);
+                DropObject();
             }
         }
     }
