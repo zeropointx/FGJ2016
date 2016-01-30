@@ -10,15 +10,15 @@ public class SpawnIngredients : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
     {
-        Debug.Log("spawn start");
         for (int i = 0; i < SPAWN_COUNT; i++)
         {
-            Debug.Log("spawn");
-            GameObject obj1 = transform.GetChild((Random.Range(0, (int)transform.childCount) - 1)).gameObject;
-            GameObject obj2 = pickUp;//(GameObject)Resources.Load("_Prefabs/PickUp");
-            obj2.transform.position = obj1.transform.position;
-            Destroy(obj1);
-            Instantiate(obj2);
+            if (transform.childCount <= 0)
+                break;
+            GameObject point = transform.GetChild((Random.Range(0, (int)transform.childCount) - 1)).gameObject;
+            GameObject spawn = pickUp;//(GameObject)Resources.Load("_Prefabs/PickUp");
+            spawn.transform.position = point.transform.position;
+            Destroy(point);
+            Instantiate(spawn);
         }
 	}
 
