@@ -13,9 +13,10 @@ GameObject:
   - 54: {fileID: 5483716}
   - 82: {fileID: 8205458}
   - 114: {fileID: 11477210}
+  - 114: {fileID: 11483844}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44,7 +45,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 130808}
   m_LocalRotation: {x: 0, y: 0.9961947, z: 0, w: -0.08715589}
-  m_LocalPosition: {x: -1.46, y: 5.156, z: 3.98}
+  m_LocalPosition: {x: 16.15, y: -2.86, z: 6.33}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 451774}
@@ -298,6 +299,17 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 8bc94ec6ed537e743b481638bdcd503d, type: 3}
   m_JumpSound: {fileID: 8300000, guid: 5897aeed9b676024fbb8c694b421a861, type: 3}
   m_LandSound: {fileID: 8300000, guid: 3b09d59f4499d45428baa7a21e954296, type: 3}
+--- !u!114 &11483844
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 130808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86a5c098b3be1f742b566ac070001ce5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!143 &14337892
 CharacterController:
   m_ObjectHideFlags: 1
@@ -321,7 +333,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 130808}

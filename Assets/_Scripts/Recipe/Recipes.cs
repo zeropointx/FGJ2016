@@ -9,9 +9,13 @@ public class Recipes : MonoBehaviour {
         return cultistItems;
     }
 	// Use this for initialization
-	void Start () {
+    void Awake()
+    {
         GenerateCultistItems();
         GeneratePlayerItems();
+    }
+	void Start () {
+     
 	}
     void GenerateCultistItems()
     {

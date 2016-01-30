@@ -4,6 +4,7 @@ using System.Collections;
 public class AI : MonoBehaviour {
     NavMeshAgent navAgent = null;
     Transform targets;
+    Transform cauldron;
     public float waitTimer = 0.0f;
     float minWaitTimerDelay = 3.0f;
     float maxWaitTimerDelay = 10.0f;
@@ -21,6 +22,7 @@ public class AI : MonoBehaviour {
     }
     public State currentState = State.WALKING;
 	void Start () {
+        cauldron = GameObject.Find("Cauldron").transform;
         targets = GameObject.Find("Targets").transform;
         navAgent = GetComponent<NavMeshAgent>();
         navAgent.SetDestination(getRandomTargetPos());
