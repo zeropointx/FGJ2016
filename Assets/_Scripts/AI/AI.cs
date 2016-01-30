@@ -9,13 +9,8 @@ public class AI : MonoBehaviour {
     float minWaitTimerDelay = 3.0f;
     float maxWaitTimerDelay = 10.0f;
     public float waitTimerDelay = 0.0f;
-    public Ingredient.Type[] items = new Ingredient.Type[] { Ingredient.Type.A, Ingredient.Type.B };
     public Transform targetItem = null;
     float holdItemDistance = 1.0f;
-    public void setItems(Ingredient.Type[] items)
-    {
-        this.items = items;
-    }
 	// Use this for initialization
     public enum State
     {

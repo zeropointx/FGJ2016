@@ -2,53 +2,30 @@
 using System.Collections;
 using System.Collections.Generic;
 public class Recipes : MonoBehaviour {
-    List<Ingredient.Type> cultistItems = new List<Ingredient.Type>();
     List<Ingredient.Type> playerItems = new List<Ingredient.Type>();
-    public List<Ingredient.Type> GetCultistItems()
+    public List<Ingredient.Type> GetPlayerItems()
     {
-        return cultistItems;
+        return playerItems;
     }
 	// Use this for initialization
     void Awake()
     {
-        GenerateCultistItems();
         GeneratePlayerItems();
     }
 	void Start () {
      
 	}
-    void GenerateCultistItems()
-    {
-        for(int i = 0; i < 10; i++)
-        {
-            Ingredient.Type tempItem = (Ingredient.Type)Random.Range(0, (int)Ingredient.Type.U);
-            while(CultistItemsContains(tempItem))
-            {
-                tempItem = (Ingredient.Type)Random.Range(0, (int)Ingredient.Type.U);
-            }
-            cultistItems.Add(tempItem);
-        }
-    }
     void GeneratePlayerItems()
     {
         for (int i = 0; i < 10; i++)
         {
             Ingredient.Type tempItem = (Ingredient.Type)Random.Range(0, (int)Ingredient.Type.U);
-            while (CultistItemsContains(tempItem) || PlayerItemsContains(tempItem))
+            while (PlayerItemsContains(tempItem))
             {
                 tempItem = (Ingredient.Type)Random.Range(0, (int)Ingredient.Type.U);
             }
             playerItems.Add(tempItem);
         }
-    }
-    bool CultistItemsContains(Ingredient.Type item)
-    {
-        for(int i = 0; i < cultistItems.Count; i++)
-        {
-            if (cultistItems[i] == item)
-                return true;
-        }
-        return false;
     }
     bool PlayerItemsContains(Ingredient.Type item)
     {
