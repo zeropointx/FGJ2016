@@ -10,6 +10,8 @@ public class AI : MonoBehaviour {
     float maxWaitTimerDelay = 10.0f;
     public float waitTimerDelay = 0.0f;
     public Ingredient.Type[] items = new Ingredient.Type[] { Ingredient.Type.A, Ingredient.Type.B };
+    public Transform targetItem = null;
+    float holdItemDistance = 1.0f;
     public void setItems(Ingredient.Type[] items)
     {
         this.items = items;
@@ -18,7 +20,9 @@ public class AI : MonoBehaviour {
     public enum State
     {
         WALKING,
-        WAITING
+        WAITING,
+        FETCH_ITEM,
+        TAKE_ITEM_BACK
     }
     public State currentState = State.WALKING;
 	void Start () {
@@ -55,10 +59,69 @@ public class AI : MonoBehaviour {
                     }
                     break;
                 }
+            case State.FETCH_ITEM:
+                {
+                    if(Vector3.Distance(transform.position,targetItem.position) < 2.0f)
+                    {
+                        currentState = State.TAKE_ITEM_BACK;
+                        navAgent.SetDestination(targetItem.GetComponent<Ingredient>().startPos);
+                        PickObject();
+                    }
+                    else
+                    if(navAgent.destination != targetItem.position)
+                    navAgent.SetDestination(targetItem.position);
+                    break;
+                }
+            case State.TAKE_ITEM_BACK:
+                {
+                    if (Vector3.Distance(transform.position, targetItem.position) > 3.0f)
+                    {
+                        currentState = State.FETCH_ITEM;
+                        navAgent.SetDestination(targetItem.position);
+                    }
+                    if (Vector3.Distance(transform.position, targetItem.GetComponent<Ingredient>().startPos) < 2.0f)
+                    {
+                        currentState = State.WAITING;
+                        waitTimerDelay = Random.Range(minWaitTimerDelay, maxWaitTimerDelay);
+                        navAgent.Stop(true);
+                        DropObject();
+                    }
+                    break;
+                }
 
         }
 
+
 	}
+    public void FetchItem(Transform item)
+    {
+        if (targetItem != null)
+            return;
+
+        targetItem = item;
+        targetItem.GetComponent<Ingredient>().isBeingPickedUp = true;
+        navAgent.SetDestination(targetItem.position);
+        navAgent.Resume();
+        currentState = State.FETCH_ITEM;
+    }
+    private void PickObject()
+    {
+       
+        targetItem.parent = this.transform;
+        targetItem.position = transform.position + transform.forward * holdItemDistance;
+        targetItem.GetComponent<Rigidbody>().isKinematic = true;
+    }
+
+
+    private void DropObject()
+    {
+        targetItem.GetComponent<Ingredient>().isBeingPickedUp = false;
+        targetItem.parent = null;
+        Rigidbody body = targetItem.GetComponent<Rigidbody>();
+        body.isKinematic = false;
+        targetItem = null;
+    }
+
     Vector3 getRandomTargetPos()
     {
         int randomIndex = Random.Range(0,targets.childCount);
