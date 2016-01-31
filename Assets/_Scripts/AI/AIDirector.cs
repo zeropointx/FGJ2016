@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 public class AIDirector : MonoBehaviour {
     public GameObject aiPrefab;
-    int aiSpawnCount = 7;
+    int aiSpawnCount = 8;
     GameObject targets;
     Recipes recipes;
     List<GameObject> ais = new List<GameObject>();
