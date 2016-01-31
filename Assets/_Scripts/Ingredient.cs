@@ -24,7 +24,10 @@ public class Ingredient : MonoBehaviour
 
     private Type type = Type.A;
     public bool isBeingPickedUp = false;
-    
+    void Awake()
+    {
+ 
+    }
     // Use this for initialization
 	void Start () 
     {

@@ -11,8 +11,9 @@ GameObject:
   - 33: {fileID: 3392620}
   - 23: {fileID: 2326946}
   - 95: {fileID: 9536168}
-  - 64: {fileID: 6412378}
   - 114: {fileID: 11416500}
+  - 82: {fileID: 8274594}
+  - 65: {fileID: 6529596}
   m_Layer: 0
   m_Name: Pata
   m_TagString: Cauldron
@@ -65,18 +66,92 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 190786}
   m_Mesh: {fileID: 4300000, guid: 00cffc1d279ea4f4c9b8bfbe7cedf33a, type: 3}
---- !u!64 &6412378
-MeshCollider:
+--- !u!65 &6529596
+BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 190786}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Convex: 1
-  m_Mesh: {fileID: 4300000, guid: 00cffc1d279ea4f4c9b8bfbe7cedf33a, type: 3}
+  m_Size: {x: 0.84115285, y: 0.82993186, z: 0.5880165}
+  m_Center: {x: 0.028155565, y: 0.008927123, z: 0.27696404}
+--- !u!82 &8274594
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 190786}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: de24acf6506cdfb48935c35f00db2726, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!95 &9536168
 Animator:
   serializedVersion: 3
@@ -107,6 +182,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   winAmount: 5
   currentAmount: 0
+  splashAudio: {fileID: 8274594}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
