@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class CauldronScript : MonoBehaviour {
 
@@ -21,7 +22,7 @@ public class CauldronScript : MonoBehaviour {
 	if(currentAmount >= winAmount)
     {
         Debug.Log("Wonnered");
-        //go winscreen
+        SceneManager.LoadScene("VictoryScene");
     }
 	}
 
