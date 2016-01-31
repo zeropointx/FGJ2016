@@ -34,6 +34,11 @@ public class Ingredient : MonoBehaviour
 
     private Type type = Type.A;
     public bool isBeingPickedUp = false;
+    float lightIntensity = 0.0f;
+    float maxLightIntensity = 2.7f;
+    float minLightIntensity = 0.0f;
+    bool lightIntensityRising = true;
+    float lightIncreaseMultiplier = 1.0f;
     void Awake()
     {
  
@@ -48,7 +53,28 @@ public class Ingredient : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
     {
-	    
+        if (transform.childCount > 0)
+        {
+            transform.position = transform.GetChild(0).position;
+            transform.GetChild(0).localPosition = new Vector3();
+        }
+        if (lightIntensityRising)
+        {
+            lightIntensity += Time.deltaTime * lightIncreaseMultiplier;
+            if (lightIntensity >= maxLightIntensity)
+            {
+                lightIntensityRising = false;
+            }
+        }
+        else
+        {
+            lightIntensity -= Time.deltaTime * lightIncreaseMultiplier;
+            if (lightIntensity <= minLightIntensity)
+            {
+                lightIntensityRising = true;
+            }
+        }
+        GetComponent<Light>().intensity = lightIntensity;
 	}
 
     public Ingredient.Type GetIngredientType()

@@ -30,7 +30,7 @@ public class CauldronScript : MonoBehaviour {
         if(other.gameObject.tag == "PickUp")
         {
             splashAudio.Play();
-            Destroy(other.gameObject);
+            Destroy(other.transform.parent.gameObject);
             currentAmount++;
         }
     }
