@@ -13,12 +13,19 @@ public class SpawnIngredients : MonoBehaviour {
         List<Ingredient.Type> types = GameObject.Find("/AiManager").GetComponent<Recipes>().GetPlayerItems();
         for (int i = 0; i < types.Count; i++)
         {
-            GameObject point = transform.GetChild((Random.Range(0, children - 1))).gameObject;
+            GameObject hub = transform.GetChild((Random.Range(0, children - 1))).gameObject;
+            int hubChilds = hub.transform.childCount;
+            GameObject point = hub.transform.GetChild(Random.Range(0, hubChilds - 1)).gameObject;
             GameObject spawn = Instantiate(pickUp);
             spawn.transform.position = point.transform.position;
             spawn.GetComponent<Ingredient>().SetType(types[i]);
-            DestroyImmediate(point);
-            children--;
+            if (hubChilds <= 4)
+            {
+                children--;
+                DestroyImmediate(hub);
+            }
+            else
+                DestroyImmediate(point);
         }
 	}
 
