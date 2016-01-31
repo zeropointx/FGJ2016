@@ -16,10 +16,20 @@ public class Ingredient : MonoBehaviour
     public GameObject lizard;
     public GameObject teddy;
     public GameObject nokia;
+    public GameObject bat;
+    public GameObject bottleRed;
+    public GameObject bottleGreen;
+    public GameObject bottleBlue;
+    public GameObject scorpion;
+    public GameObject diamond;
+    public GameObject salt;
+    public GameObject gamePad;
+    public GameObject eggThing;
+    public GameObject toothBrush;
 
     public enum Type
     {
-        A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U
+        A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T
     };
 
     private Type type = Type.A;
@@ -49,7 +59,6 @@ public class Ingredient : MonoBehaviour
     public void SetType(Type _type)
     {
         type = _type;
-
         GameObject newModel = null;
         switch(type)
         {
@@ -78,18 +87,37 @@ public class Ingredient : MonoBehaviour
                 newModel = Instantiate(teddy);
                 break;
             case Type.I:
-            case Type.J:
-            case Type.K:
-            case Type.M:
-            case Type.N:
-            case Type.O:
-            case Type.P:
-            case Type.Q:
-            case Type.R:
-            case Type.S:
-            case Type.T:
-            case Type.U:
                 newModel = Instantiate(nokia);
+                break;
+            case Type.J:
+                newModel = Instantiate(bat);
+                break;
+            case Type.K:
+                newModel = Instantiate(bottleRed);
+                break;
+            case Type.M:
+                newModel = Instantiate(bottleGreen);
+                break;
+            case Type.N:
+                newModel = Instantiate(bottleBlue);
+                break;
+            case Type.O:
+                newModel = Instantiate(scorpion);
+                break;
+            case Type.P:
+                newModel = Instantiate(diamond);
+                break;
+            case Type.Q:
+                newModel = Instantiate(salt);
+                break;
+            case Type.R:
+                newModel = Instantiate(gamePad);
+                break;
+            case Type.S:
+                newModel = Instantiate(eggThing);
+                break; 
+            case Type.T:
+                newModel = Instantiate(toothBrush);
                 break;
 
             default:
