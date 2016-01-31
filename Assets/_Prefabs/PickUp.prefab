@@ -159,6 +159,16 @@ MonoBehaviour:
   lizard: {fileID: 109936, guid: b00cf690fe2598847bf1c698f99e06be, type: 2}
   teddy: {fileID: 166166, guid: d8820569401ce224d93683357e159759, type: 2}
   nokia: {fileID: 192116, guid: 9fdd445942a4ea044ad280e8735d4607, type: 2}
+  bat: {fileID: 109438, guid: 8111fe0f87a8f4749b712e9ee469081c, type: 2}
+  bottleRed: {fileID: 192054, guid: 1f110827be4d5574fa3cf120fe39836a, type: 2}
+  bottleGreen: {fileID: 185098, guid: 3f9f5ee0becfd7845abcf3fa6b26bb5e, type: 2}
+  bottleBlue: {fileID: 109566, guid: 72e063d473d065746bfba0a52ccf2e55, type: 2}
+  scorpion: {fileID: 197802, guid: 681b7f72bf757734aa5e1dc46683af95, type: 2}
+  diamond: {fileID: 185760, guid: ae14602249adcfe4d8c6c911be708f35, type: 2}
+  salt: {fileID: 161358, guid: 1e1b1db9a5dbacd4cb16cf3d181cd3e1, type: 2}
+  gamePad: {fileID: 104702, guid: 64cc674204e1f4345b3a247d31a96d47, type: 2}
+  eggThing: {fileID: 172676, guid: 04954feb546ac9f4b8fb0427543d3c02, type: 2}
+  toothBrush: {fileID: 101332, guid: f8ebb8ed58943624ca25ca200978799e, type: 2}
   isBeingPickedUp: 0
 --- !u!1001 &100100000
 Prefab:

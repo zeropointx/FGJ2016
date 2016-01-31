@@ -62,6 +62,7 @@ public class PickItem : MonoBehaviour
         body.useGravity = false;
         body.velocity = new Vector3(0, 0, 0);
         body.angularVelocity = new Vector3(0, 0, 0);
+        heldItem.transform.parent.GetComponent<Ingredient>().isBeingPickedUp = true;
     }
 
 
@@ -73,6 +74,7 @@ public class PickItem : MonoBehaviour
         body.AddForce(throwMultiplier * throwForce * myCamera.transform.forward, ForceMode.Impulse);
         body.AddRelativeTorque(throwMultiplier * new Vector3(-25, 0, 0));
         body.isKinematic = false;
+        heldItem.transform.parent.GetComponent<Ingredient>().isBeingPickedUp = false;
         heldItem = null;
     }
 

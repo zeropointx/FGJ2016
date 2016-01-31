@@ -19,10 +19,10 @@ public class Recipes : MonoBehaviour {
     {
         for (int i = 0; i < 10; i++)
         {
-            Ingredient.Type tempItem = (Ingredient.Type)Random.Range(0, (int)Ingredient.Type.U);
+            Ingredient.Type tempItem = (Ingredient.Type)Random.Range(0, (int)Ingredient.Type.T);
             while (PlayerItemsContains(tempItem))
             {
-                tempItem = (Ingredient.Type)Random.Range(0, (int)Ingredient.Type.U);
+                tempItem = (Ingredient.Type)Random.Range(0, (int)Ingredient.Type.T);
             }
             playerItems.Add(tempItem);
         }
