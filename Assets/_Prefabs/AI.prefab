@@ -14,7 +14,7 @@ GameObject:
   - 82: {fileID: 8285794}
   - 82: {fileID: 8263652}
   - 82: {fileID: 8230910}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: AI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33,7 +33,7 @@ GameObject:
   - 23: {fileID: 2399132}
   - 95: {fileID: 9579300}
   - 65: {fileID: 6565148}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: cultist
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52,7 +52,7 @@ GameObject:
   - 64: {fileID: 6428962}
   - 23: {fileID: 2308024}
   - 33: {fileID: 3370022}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: AISight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -67,7 +67,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 424644}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: HEAD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -639,6 +639,10 @@ Prefab:
       propertyPath: head
       value: 
       objectReference: {fileID: 424644}
+    - target: {fileID: 0}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 114322}
