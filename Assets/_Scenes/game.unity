@@ -566,7 +566,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11416500, guid: f4e0b79884ff99d44827ae3865771464, type: 2}
       propertyPath: winAmount
-      value: 10
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f4e0b79884ff99d44827ae3865771464, type: 2}
@@ -18526,7 +18526,7 @@ Transform:
   - {fileID: 1082181498}
   - {fileID: 1205719298}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 1
 --- !u!4 &2015789193 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: b1d7846987277bd4ab5d6fa916933779, type: 3}
@@ -19108,8 +19108,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -77, y: -15}
-  m_SizeDelta: {x: 153, y: 30}
+  m_AnchoredPosition: {x: -119.1, y: -15}
+  m_SizeDelta: {x: 237.1, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2071165336
 MonoBehaviour:
@@ -19132,10 +19132,10 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 25
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 2
     m_MaxSize: 40
     m_Alignment: 0
     m_AlignByGeometry: 0
