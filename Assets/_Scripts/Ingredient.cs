@@ -29,7 +29,7 @@ public class Ingredient : MonoBehaviour
 
     public enum Type
     {
-        A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T
+        A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S
     };
 
     private Type type = Type.A;
@@ -53,6 +53,12 @@ public class Ingredient : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
     {
+        if(isBeingPickedUp)
+        {
+            lightIntensity = 0.0f;
+            GetComponent<Light>().intensity = lightIntensity;
+            return;
+        }
         if (transform.childCount > 0)
         {
             transform.position = transform.GetChild(0).position;
@@ -142,7 +148,7 @@ public class Ingredient : MonoBehaviour
             case Type.S:
                 newModel = Instantiate(eggThing);
                 break; 
-            case Type.T:
+            case Type.L:
                 newModel = Instantiate(toothBrush);
                 break;
 
